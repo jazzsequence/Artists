@@ -149,7 +149,7 @@ class Plague_Artist {
 		echo '<input class="widefat" type="text" name="rpm_challenge" value="' . mysql_real_escape_string( get_post_meta($post->ID, 'rpm_challenge', true) ) . '" /></p>';
 
 		echo '<p><label for="press">' . __( 'Press', 'plague-artists' ) . '</label><br />' . __( 'Post any reviews here.', 'plague-artists' ) . '<br />';
-		echo wp_kses_post( wp_editor( get_post_meta($post->ID, 'press', true), 'press', array( 'media_buttons' => false, 'teeny' => true ) ) ) . '</p>';
+		echo wp_kses_post( wp_editor( get_post_meta($post->ID, 'press', true), 'press', array( 'media_buttons' => false, 'teeny' => true, 'quicktags' => false ) ) ) . '</p>';
 
 	}
 
