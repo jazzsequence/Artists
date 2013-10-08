@@ -11,8 +11,8 @@
 	background: none!important;
 }
 #menu-posts-plague-artist .wp-menu-image:before {
-	font-family: 'FontAwesome'!important;
-	content: "\f130";
+	font-family: 'plague-fonts'!important;
+	content: "\e00f";
 	font-size: 20px;
 	position: relative;
 	left: 5px;
@@ -33,8 +33,8 @@ div#icon-edit.icon32-posts-plague-artist {
 	background-image: none;
 }
 div#icon-edit.icon32-posts-plague-artist:after {
-	font-family: 'FontAwesome'!important;
-	content: "\f130";
+	font-family: 'plague-fonts'!important;
+	content: "\e00f";
 	color: #555;
 	font-size: 32px;
 	position: relative;
@@ -42,8 +42,8 @@ div#icon-edit.icon32-posts-plague-artist:after {
 }
 
 .mp6 #adminmenu #menu-posts-plague-artist div.wp-menu-image:before {
-	font-family: 'FontAwesome'!important;
-	content: "\f130";
+	font-family: 'plague-fonts'!important;
+	content: "\e00f";
 	left: 0;
 	top: 0;
 	text-shadow: none;

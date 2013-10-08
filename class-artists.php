@@ -220,7 +220,7 @@ class Plague_Artist {
 	}
 
 	public function admin_styles() {
-		wp_enqueue_style( 'fontawesome', plugins_url( 'css/font-awesome.min.css', __FILE__ ), array(), $this->version );
+		wp_enqueue_style( 'plague-fonts', plugins_url( 'css/plague-fonts.css', __FILE__ ), array(), $this->version );
 		wp_enqueue_style( 'artist-admin-css', plugins_url( 'css/artists-admin.css', __FILE__ ), array(), $this->version );
 	}
 }

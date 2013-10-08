@@ -1,13 +1,12 @@
-
 @charset "UTF-8";
 
 @font-face {
   font-family: "plague-fonts";
-  src:url("fonts/plague-fonts.eot");
-  src:url("fonts/plague-fonts.eot?#iefix") format("embedded-opentype"),
-    url("fonts/plague-fonts.ttf") format("truetype"),
-    url("fonts/plague-fonts.svg#plague-fonts") format("svg"),
-    url("fonts/plague-fonts.woff") format("woff");
+  src:url("../font/plague-fonts.eot");
+  src:url("../font/plague-fonts.eot?#iefix") format("embedded-opentype"),
+    url("../font/plague-fonts.ttf") format("truetype"),
+    url("../font/plague-fonts.svg#plague-fonts") format("svg"),
+    url("../font/plague-fonts.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 
@@ -143,4 +142,3 @@
 .icon-quote:before {
   content: "\e019";
 }
-
