@@ -50,8 +50,9 @@ class Plague_Artist {
 		// all the actions go here
 
 		add_action( 'init', array( $this, 'post_type_artists' ), 0 );
-		add_action('admin_menu', array( $this, 'custom_meta_boxes_artists' ) );
-		add_action('save_post', array( $this, 'artists_save_product_postdata' ), 1, 2); // save the custom fields
+		add_action( 'admin_menu', array( $this, 'custom_meta_boxes_artists' ) );
+		add_action( 'save_post', array( $this, 'artists_save_product_postdata' ), 1, 2); // save the custom fields
+		add_action( 'save_post', array( $this, 'create_artist_term' ), 1, 1 );
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_styles') );
 
 	}
@@ -179,8 +180,7 @@ class Plague_Artist {
 			'bandcamp_page' => 'url',
 			'alonetone_id' => 'text',
 			'rpm_challenge' => 'url',
-			'press' => 'text',
-			'plague_slug' => 'slug'
+			'press' => 'text'
 		);
 
 		/* Add values of $mydata as custom fields */
@@ -205,9 +205,6 @@ class Plague_Artist {
 				if ( $type == 'url' ) {
 					$value = htmlspecialchars( $_POST[ $meta_key ] );
 				}
-				if ( $type == 'slug' ) {
-					$value = sanitize_title( $_POST[ $meta_key ] );
-				}
 
 				update_post_meta( $post->ID, $meta_key, $value );
 			} else {
@@ -219,5 +216,30 @@ class Plague_Artist {
 	public function admin_styles() {
 		wp_enqueue_style( 'plague-fonts', plugins_url( 'css/plague-fonts.css', __FILE__ ), array(), $this->version );
 		wp_enqueue_style( 'artist-admin-css', plugins_url( 'css/artists-admin.css', __FILE__ ), array(), $this->version );
+	}
+
+	public function create_artist_term( $post_id ) {
+		// if this is a revision, do nothing
+		if ( wp_is_post_revision( $post_id ) )
+			return;
+
+		// if there's no artist taxonomy, do nothing
+		if ( !taxonomy_exists( 'artist' ) ) {
+			return;
+		}
+
+		if ( 'plague-artist' == get_post_type() ) {
+
+			$post_data = get_post( $post_id, ARRAY_A );
+			$slug = $post_data['post_name'];
+			$name = $post_data['post_title'];
+
+			if ( !term_exists( $slug, 'artist' ) ) { // check if the term already exists
+				wp_insert_term( $name, 'artist', array(
+					'slug' => $slug
+				) );
+			}
+
+		}
 	}
 }
