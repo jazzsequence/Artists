@@ -77,18 +77,18 @@ class Plague_Artist {
 	/* create the custom post type */
 	public function post_type_artists() {
 	    $labels = array(
-			'name' => _x('Artists', 'post type general name'),
-			'singular_name' => _x('Artist', 'post type singular name'),
-			'add_new' => _x('Add New', 'product'),
-			'add_new_item' => __('Add New Artist'),
-			'edit_item' => __('Edit Artist'),
-			'edit' => _x('Edit', 'artists'),
-			'new_item' => __('New Artist'),
-			'view_item' => __('View Artist'),
-			'search_items' => __('Search Artist'),
-			'not_found' =>  __('No artists found'),
-			'not_found_in_trash' => __('No artists found in Trash'),
-			'view' =>  __('View Artist'),
+			'name' => _x('Artists', 'post type general name', 'plague-artists'),
+			'singular_name' => _x('Artist', 'post type singular name', 'plague-artists'),
+			'add_new' => __('Add New', 'plague-artists'),
+			'add_new_item' => __('Add New Artist', 'plague-artists'),
+			'edit_item' => __('Edit Artist', 'plague-artists'),
+			'edit' => _x('Edit', 'artists', 'plague-artists'),
+			'new_item' => __('New Artist', 'plague-artists'),
+			'view_item' => __('View Artist', 'plague-artists'),
+			'search_items' => __('Search Artist', 'plague-artists'),
+			'not_found' =>  __('No artists found', 'plague-artists'),
+			'not_found_in_trash' => __('No artists found in Trash', 'plague-artists'),
+			'view' =>  __('View Artist', 'plague-artists'),
 			'parent_item_colon' => ''
 	  );
 		$args = array(
@@ -111,7 +111,7 @@ class Plague_Artist {
 	/* create custom meta boxes */
 
 	public function custom_meta_boxes_artists() {
-	    add_meta_box("artist-details", "Artist Details", array( $this, 'meta_cpt_artists' ), "plague-artist", "normal", "low");
+	    add_meta_box("artist-details", __( 'Artist Details', 'plague-artists' ), array( $this, 'meta_cpt_artists' ), "plague-artist", "normal", "low");
 	}
 
 	public function meta_cpt_artists() {
@@ -120,38 +120,35 @@ class Plague_Artist {
 		echo '<input type="hidden" name="artists_noncename" id="artists_noncename" value="' .
 		wp_create_nonce( plugin_basename(__FILE__) ) . '" />';
 
-		echo '<label for="website_url">Website URL</label><br />';
-		echo '<input style="width: 55%;" type="text" name="website_url" value="' . mysql_real_escape_string( get_post_meta($post->ID, 'website_url', true) ) . '" /><br /><br />';
+		echo '<p><label for="website_url">' . __( 'Website URL', 'plague-artists' ) . '</label><br />';
+		echo '<input class="widefat" type="text" name="website_url" value="' . mysql_real_escape_string( get_post_meta($post->ID, 'website_url', true) ) . '" /></p>';
 
-		echo '<label for="facebook_url">Facebook Page URL (full URL)</label><br />';
-		echo '<input style="width: 55%;" type="text" name="facebook_url" value="' . mysql_real_escape_string( get_post_meta($post->ID, 'facebook_url', true) ) . '" /><br /><br />';
+		echo '<p><label for="facebook_url">' . __( 'Facebook Page URL (full URL)', 'plague-artists' ) . '</label><br />';
+		echo '<input class="widefat" type="text" name="facebook_url" value="' . mysql_real_escape_string( get_post_meta($post->ID, 'facebook_url', true) ) . '" /></p>';
 
-		echo '<label for="twitter_id">Twitter Name (username only)</label><br />';
-		echo '<input style="width: 55%;" type="text" name="twitter_id" value="' . wp_kses( get_post_meta($post->ID, 'twitter_id', true), array() ) . '" /><br /><br />';
+		echo '<p><label for="twitter_id">' . __( 'Twitter Name (username only)', 'plague-artists' ) . '</label><br />';
+		echo '<input class="widefat" type="text" name="twitter_id" value="' . wp_kses( get_post_meta($post->ID, 'twitter_id', true), array() ) . '" /></p>';
 
-		echo '<label for="myspace_page">MySpace Page (username/page name only)</label><br />';
-		echo '<input style="width: 55%;" type="text" name="myspace_page" value="' . wp_kses( get_post_meta($post->ID, 'myspace_page', true), array() ) . '" /><br /><br />';
+		echo '<p><label for="myspace_page">' . __( 'MySpace Page (username/page name only)', 'plague-artists' ) . '</label><br />';
+		echo '<input class="widefat" type="text" name="myspace_page" value="' . wp_kses( get_post_meta($post->ID, 'myspace_page', true), array() ) . '" /></p>';
 
-		echo '<label for="reverbnation_page">ReverbNation Page (page name only)</label><br />';
-		echo '<input style="width: 55%;" type="text" name="reverbnation_page" value="' . wp_kses( get_post_meta($post->ID, 'reverbnation_page', true), array() ) . '" /><br /><br />';
+		echo '<p><label for="reverbnation_page">' . __( 'ReverbNation Page (page name only)', 'plague-artists' ) . '</label><br />';
+		echo '<input class="widefat" type="text" name="reverbnation_page" value="' . wp_kses( get_post_meta($post->ID, 'reverbnation_page', true), array() ) . '" /></p>';
 
-		echo '<label for="soundcloud_name">SoundCloud Page (username only)</label><br />';
-		echo '<input style="width: 55%;" type="text" name="soundcloud_name" value="' . wp_kses( get_post_meta($post->ID, 'soundcloud_name', true), array() ) . '" /><br /><br />';
+		echo '<p><label for="soundcloud_name">' . __( 'SoundCloud Page (username only)', 'plague-artists' ) . '</label><br />';
+		echo '<input class="widefat" type="text" name="soundcloud_name" value="' . wp_kses( get_post_meta($post->ID, 'soundcloud_name', true), array() ) . '" /></p>';
 
-		echo '<label for="bandcamp_page">BandCamp Page (full URL)</label><br />';
-		echo '<input style="width: 55%;" type="text" name="bandcamp_page" value="' . mysql_real_escape_string( get_post_meta($post->ID, 'bandcamp_page', true) ) . '" /><br /><br />';
+		echo '<p><label for="bandcamp_page">' . __( 'BandCamp Page (full URL)', 'plague-artists' ) . '</label><br />';
+		echo '<input class="widefat" type="text" name="bandcamp_page" value="' . mysql_real_escape_string( get_post_meta($post->ID, 'bandcamp_page', true) ) . '" /></p>';
 
-		echo '<label for="alonetone_id">Alonetone Name (username only)</label><br />';
-		echo '<input style="width: 55%;" type="text" name="alonetone_id" value="' . wp_kses( get_post_meta($post->ID, 'alonetone_id', true), array() ) . '" /><br /><br />';
+		echo '<p><label for="alonetone_id">' . __( 'Alonetone Name (username only)', 'plague-artists' ) . '</label><br />';
+		echo '<input class="widefat" type="text" name="alonetone_id" value="' . wp_kses( get_post_meta($post->ID, 'alonetone_id', true), array() ) . '" /></p>';
 
-		echo '<label for="rpm_challenge">RPM Challenge page (full URL)</label><br />';
-		echo '<input style="width: 55%;" type="text" name="rpm_challenge" value="' . mysql_real_escape_string( get_post_meta($post->ID, 'rpm_challenge', true) ) . '" /><br /><br />';
+		echo '<p><label for="rpm_challenge">' . __( 'RPM Challenge page (full URL)', 'plague-artists' ) . '</label><br />';
+		echo '<input class="widefat" type="text" name="rpm_challenge" value="' . mysql_real_escape_string( get_post_meta($post->ID, 'rpm_challenge', true) ) . '" /></p>';
 
-		echo '<label for="press">Press</label><br />Post any reviews here.<br />';
-		echo wp_kses_post( wp_editor( get_post_meta($post->ID, 'press', true), 'press', array( 'media_buttons' => false, 'teeny' => true ) ) ) . '<br /><br />';
-
-		echo '<label for="plague_slug">Plague Artist slug</label><br />If you are a Plague Music artist with a release on the Releases page, enter the slug for your artist releases from <a href="http://plaguemusic.com/a/wp-admin/edit-tags.php?taxonomy=artist&post_type=releases">this page</a>.<br />';
-		echo '<input style="width: 55%;" type="text" name="plague_slug" value="' . wp_kses( get_post_meta($post->ID, 'plague_slug', true), array() ) . '" /><br /><br />';
+		echo '<p><label for="press">' . __( 'Press', 'plague-artists' ) . '</label><br />' . __( 'Post any reviews here.', 'plague-artists' ) . '<br />';
+		echo wp_kses_post( wp_editor( get_post_meta($post->ID, 'press', true), 'press', array( 'media_buttons' => false, 'teeny' => true ) ) ) . '</p>';
 
 	}
 
