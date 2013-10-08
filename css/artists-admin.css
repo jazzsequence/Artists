@@ -1,0 +1,50 @@
+#wp-press-editor-container {
+	background: #fff;
+}
+
+#artist-details label {
+	font-weight: bold;
+	font-size: 1.0em;
+}
+
+#menu-posts-plague-artist .wp-menu-image {
+	background: none!important;
+}
+#menu-posts-plague-artist .wp-menu-image:before {
+	font-family: 'FontAwesome'!important;
+	content: "\f130";
+	font-size: 20px;
+	position: relative;
+	left: 5px;
+	top: 4px;
+	text-shadow: 1px 1px 0px #eee;
+	color: #aaa;
+}
+#menu-posts-plague-artist:hover .wp-menu-image:before {
+	color: #21759b;
+}
+.wp-has-current-submenu#menu-posts-plague-artist .wp-menu-image:before {
+	color: #eee;
+}
+.wp-has-current-submenu#menu-posts-plague-artist .wp-menu-image:before {
+	text-shadow: 1px 1px 0px #555;
+}
+div#icon-edit.icon32-posts-plague-artist {
+	background-image: none;
+}
+div#icon-edit.icon32-posts-plague-artist:after {
+	font-family: 'FontAwesome'!important;
+	content: "\f130";
+	color: #555;
+	font-size: 32px;
+	position: relative;
+	top: -5px;
+}
+
+.mp6 #adminmenu #menu-posts-plague-artist div.wp-menu-image:before {
+	font-family: 'FontAwesome'!important;
+	content: "\f130";
+	left: 0;
+	top: 0;
+	text-shadow: none;
+}
