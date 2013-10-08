@@ -1,6 +1,6 @@
 <?php
 
-	class Plague_Artist {
+class Plague_Artist {
 
 	/**
 	 * Plugin version, used for cache-busting of style and script file references.
