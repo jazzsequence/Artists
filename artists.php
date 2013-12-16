@@ -17,5 +17,6 @@ if ( ! defined( 'WPINC' ) ) {
 
 require_once( plugin_dir_path( __FILE__ ) . 'class-artists.php' );
 require_once( plugin_dir_path( __FILE__ ) . 'inc/hooks.php' );
+require_once( plugin_dir_path( __FILE__ ) . 'inc/func.php' );
 
 Plague_Artist::get_instance();
